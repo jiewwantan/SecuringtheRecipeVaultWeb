@@ -1,0 +1,28 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+- Terrascan: https://github.com/accurics/terrascan
+- Chef Inspect: https://github.com/inspec/inspec
+
+### Example vulnerability
+- Ingress open to 0.0.0.0/0
+- IAM policies with full "*:*" administrative privileges
+
+##Scan AMI’s or containers for OS vulnerabilities
+Ansible: https://www.ansible.com/
+microscanner: https://github.com/aquasecurity/microscanner
+
+### Example vulnerability
+- SSH root access with password authentication
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+- AWS Config
+- AWS GuardDuty
+- AWS Inspector
+- AWStealth
+
+### Example vulnerability
+- An IAM role assigned a policy that allows admin access
+- Unsecured privileged users - no MFA and no constrained permission condition
+- UnauthorizedAccess:EC2/SSHBruteForce
+

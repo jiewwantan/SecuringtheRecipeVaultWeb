@@ -1,0 +1,143 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+
+Attack detected:  UnauthorizedAccess:EC2/SSHBruteForce
+What happened: Instance: i-09dd905f2b9d678c3 is performing SSH brute force attacks against i-090f6d8e61ea40a10 (Web Service Instance - C3). 
+Finding:
+
+[
+  {
+    "AccountId": "780071136693",
+    "Arn": "arn:aws:guardduty:us-east-1:780071136693:detector/acbfecf170521ff507690b9fea0bc703/finding/02bfed30f770dfc69eda5fb10d43007b",
+    "CreatedAt": "2022-03-30T10:32:05.601Z",
+    "Description": "EC2 instance has been involved in SSH brute force attacks.",
+    "Id": "02bfed30f770dfc69eda5fb10d43007b",
+    "Partition": "aws",
+    "Region": "us-east-1",
+    "Resource": {
+      "InstanceDetails": {
+        "AvailabilityZone": "us-east-1b",
+        "IamInstanceProfile": {
+          "Arn": "arn:aws:iam::780071136693:instance-profile/c3-app-InstanceProfileRole-1TAMH0PYUHP6X",
+          "Id": "AIPA3LH645W23MXLWTYZD"
+        },
+        "ImageDescription": "",
+        "ImageId": "ami-01fcf79ce78f46764",
+        "InstanceId": "i-09dd905f2b9d678c3",
+        "InstanceState": "running",
+        "InstanceType": "t3.micro",
+        "OutpostArn": null,
+        "LaunchTime": "2022-03-30T06:43:54.000Z",
+        "NetworkInterfaces": [
+          {
+            "Ipv6Addresses": [],
+            "NetworkInterfaceId": "eni-096d785a77d826f34",
+            "PrivateDnsName": "ip-10-192-11-195.ec2.internal",
+            "PrivateIpAddress": "10.192.11.195",
+            "PrivateIpAddresses": [
+              {
+                "PrivateDnsName": "ip-10-192-11-195.ec2.internal",
+                "PrivateIpAddress": "10.192.11.195"
+              }
+            ],
+            "PublicDnsName": "ec2-52-203-112-70.compute-1.amazonaws.com",
+            "PublicIp": "52.203.112.70",
+            "SecurityGroups": [
+              {
+                "GroupId": "sg-08bd8bf4d6ac38400",
+                "GroupName": "AttackInstanceSG"
+              }
+            ],
+            "SubnetId": "subnet-05bdd500a06e67535",
+            "VpcId": "vpc-0f1c2ca66a7bbd57e"
+          }
+        ],
+        "Platform": null,
+        "ProductCodes": [],
+        "Tags": [
+          {
+            "Key": "aws:cloudformation:stack-name",
+            "Value": "c3-app"
+          },
+          {
+            "Key": "aws:cloudformation:logical-id",
+            "Value": "AttackInstance"
+          },
+          {
+            "Key": "aws:cloudformation:stack-id",
+            "Value": "arn:aws:cloudformation:us-east-1:780071136693:stack/c3-app/6b46b600-aff4-11ec-a85c-0a427ff85f29"
+          },
+          {
+            "Key": "Name",
+            "Value": "Attack Instance - C3"
+          }
+        ]
+      },
+      "ResourceType": "Instance"
+    },
+    "SchemaVersion": "2.0",
+    "Service": {
+      "Action": {
+        "ActionType": "NETWORK_CONNECTION",
+        "NetworkConnectionAction": {
+          "Blocked": false,
+          "ConnectionDirection": "OUTBOUND",
+          "LocalPortDetails": {
+            "Port": 33130,
+            "PortName": "Unknown"
+          },
+          "Protocol": "TCP",
+          "LocalIpDetails": {
+            "IpAddressV4": "10.192.11.195"
+          },
+          "RemoteIpDetails": {
+            "City": {
+              "CityName": ""
+            },
+            "Country": {
+              "CountryName": null
+            },
+            "GeoLocation": {
+              "Lat": 0,
+              "Lon": 0
+            },
+            "IpAddressV4": "10.192.10.79",
+            "Organization": {
+              "Asn": "0",
+              "AsnOrg": "",
+              "Isp": "",
+              "Org": ""
+            }
+          },
+          "RemotePortDetails": {
+            "Port": 22,
+            "PortName": "SSH"
+          }
+        }
+      },
+      "Archived": false,
+      "Count": 5,
+      "DetectorId": "acbfecf170521ff507690b9fea0bc703",
+      "EventFirstSeen": "2022-03-30T10:24:27.000Z",
+      "EventLastSeen": "2022-03-30T10:42:34.000Z",
+      "ResourceRole": "ACTOR",
+      "ServiceName": "guardduty",
+      "AdditionalInfo": {
+        "Value": "{}",
+        "Type": "default"
+      }
+    },
+    "Severity": 8,
+    "Title": "EC2 instance involved in SSH brute force attacks.",
+    "Type": "UnauthorizedAccess:EC2/SSHBruteForce",
+    "UpdatedAt": "2022-03-30T10:45:02.091Z"
+  }
+]
+
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack 
+- i.e. what was its source of information.
+The origin or location of a set of data. To detect unauthorized and unexpected activity in your AWS environment, 
+GuardDuty analyzes and processes data from AWS CloudTrail event logs, VPC Flow Logs, and DNS logs. 
+For more information, see How Amazon GuardDuty uses its data sources.
+
+
